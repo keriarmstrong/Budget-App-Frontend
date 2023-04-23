@@ -18,9 +18,9 @@ export default function AllTransactions() {
     return (
     <div>
      
-      {transaction.map((trans, index) => {
+      {transaction.map((trans, id) => {
         // console.log(e)
-      return (<Transaction key={index} trans={trans} index={index}/>)}
+      return (<Transaction key={id} trans={trans} id={id}/>)}
     )}
     </div>
   )

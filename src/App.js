@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Index from './pages/Index';
-import NewTransaction from './pages/NewTransaction';
+import NewTransactionPage from './pages/NewTransactionPage';
 import ShowTransaction from './pages/ShowTransaction';
 import EditTransaction from './pages/EditTransaction';
 
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/budget' element={<Index />} />
-        <Route path='/budget/new' element={<NewTransaction />} />
+        <Route path='/budget/new' element={<NewTransactionPage />} />
         <Route path='/budget/:id' element={<ShowTransaction />} />
         <Route path='/budget/:id/edit' element={<EditTransaction />} />
       </Routes>
