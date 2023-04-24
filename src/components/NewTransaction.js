@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { logDOM } from '@testing-library/react';
 const API = process.env.REACT_APP_API_URL;
 
 
@@ -11,18 +10,18 @@ export default function NewTransaction() {
 
     const navigate = useNavigate();
     const [details, setDetails] = useState({
-        
-            id:"",
+            id: "",
             item_name: "",
             amount: "",
             date: "",
             from: "",
             category: ""  
-    })
+    });
 
-    function addTransaction(newTransaction){
+    function addTransaction(){
+        let newTrans = details
         axios
-        .post(`${API}/budget`, newTransaction)
+        .post(`${API}/budget`, newTrans)
         .then(() => {
             navigate('/budget');
         }).catch((err) => console.log(err))
@@ -33,23 +32,31 @@ export default function NewTransaction() {
         addTransaction()
     }
 
+    function handleTextChange(e){
+        setDetails({ ...details, [e.target.id]: e.target.value })
+      }
+
   return (
     <div className='AddNew'>
         <form onSubmit={handleSubmit}>
         <label>Date</label>
-        <input id='date' type='text' placeholder='mm-dd-yyyy' />
+        <input onChange={handleTextChange} id='date' type='text' value={details.date} placeholder='mm-dd-yyyy' />
         <br/>
-        <br/>
+        <br/>   
         <label>Name</label>
-        <input id='name' type='text' placeholder='name' />
+        <input onChange={handleTextChange} id='item_name' type='text' value={details.item_name} placeholder='name' />
         <br/>
         <br/>
         <label>Amount</label>
-        <input id='amount' type='text' placeholder='amount' />
+        <input onChange={handleTextChange} id='amount' type='text' value={details.amount} placeholder='amount' />
         <br/>
         <br/>
         <label>From</label>
-        <input id='from' type='text' placeholder='from' />
+        <input onChange={handleTextChange} id='from' type='text' value={details.from} placeholder='from' />
+       <br/>
+       <br/>
+        <label>Category</label>
+        <input onChange={handleTextChange} id='category' type='text' value={details.category} placeholder='from' />
        <br/>
        <br/>
        <input type='submit'/>
