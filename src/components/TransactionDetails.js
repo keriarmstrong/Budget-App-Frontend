@@ -17,7 +17,6 @@ let {id} = useParams();
         .catch((err) => console.log(err))
     },[id])
 
-    // console.log(`${API}/budget/${id}`);
   
     return (
     <div>
