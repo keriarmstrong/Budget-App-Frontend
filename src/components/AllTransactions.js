@@ -6,22 +6,22 @@ const API = process.env.REACT_APP_API_URL;
 
 
 export default function AllTransactions() {
-  const [transaction, setTransaction] = useState([])
-  
-    useEffect(()=> {
-    axios.get(`${API}/budget`)
-    .then((res)=> setTransaction(res.data))
-    .catch((err)=> console.log(err))
-  },[])
-  
-  console.log(transaction)
+    const [transaction, setTransaction] = useState([])
+
+    useEffect(() => {
+        axios.get(`${API}/budget`)
+            .then((res) => setTransaction(res.data))
+            .catch((err) => console.log(err))
+    }, [])
+
+    console.log(transaction)
     return (
-    <div>
-     
-      {transaction.map((trans, id) => {
-        // console.log(e)
-      return (<Transaction key={id} trans={trans} id={id}/>)}
-    )}
-    </div>
-  )
+        <div>
+
+            {transaction.map((trans, id) => {
+                return (<Transaction key={id} trans={trans} id={id} />)
+            }
+            )}
+        </div>
+    )
 }
