@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import { Form, Col, Row, Button, Container } from 'react-bootstrap';
 
 const API = process.env.REACT_APP_API_URL;
 const unique_id = uuid();
@@ -14,7 +15,8 @@ export default function EditTransactionForm() {
   const [transaction, setTransaction] = useState({
     id: unique_id,
     item_name: "",
-    amount: "",
+    amount: 0,
+    type: "",
     date: "",
     from: "",
     category: ""
@@ -48,30 +50,82 @@ export default function EditTransactionForm() {
   };
 
   return (
-    <div className='editTransFormContainer'>
-      <form className='editTransForm' onSubmit={handleSubmit}>
-        <label>Date</label>
-        <input onChange={handleTextChange} id='date' type='text' value={transaction.date} placeholder='mm-dd-yyyy' />
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+        <Row>
+          <Col>
+        <Form.Label>Date</Form.Label>
+        </Col>
+        <Col>
+        <Form.Control onChange={handleTextChange} id='date' type='date' value={transaction.date} placeholder='mm-dd-yyyy' />
+        </Col>
+        </Row>
         <br />
+        <Row>
+          <Col>
+        <Form.Label >Name</Form.Label>
+        </Col>
+        <Col>
+        <Form.Control onChange={handleTextChange} id='item_name' type='text' value={transaction.item_name} placeholder='name' />
+        </Col>
+        </Row>
         <br />
-        <label>Name</label>
-        <input onChange={handleTextChange} id='item_name' type='text' value={transaction.item_name} placeholder='name' />
+        <Row>
+          <Col>
+        <Form.Label>Type</Form.Label>
+        </Col>
+      <Col>
+      
+        <select class="form-select" id="type" onChange={handleTextChange}>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="debit">debit</option>
+                    <option value="credit">credit</option>
+                </select>
+              
+                </Col>
+        {/* <input onChange={handleTextChange} id='type' type='text' value={transaction.item_name} placeholder='name' /> */}
+        </Row>
         <br />
+        <Row>
+          <Col>
+        <Form.Label>Amount</Form.Label>
+        </Col>
+        <Col>
+        <Form.Control onChange={handleTextChange} id='amount' type='number' value={transaction.amount} placeholder='amount' />
+        </Col>
+        </Row>
         <br />
-        <label>Amount</label>
-        <input onChange={handleTextChange} id='amount' type='number' value={transaction.amount} placeholder='amount' />
+        <Row>
+          <Col>
+        <Form.Label>From</Form.Label>
+        </Col>
+        <Col>
+        <Form.Control onChange={handleTextChange} id='from' type='text' value={transaction.from} placeholder='from' />
+        </Col>
+        </Row>
         <br />
+        <Row>
+          <Col>
+        <Form.Label>Category</Form.Label>
+        </Col>
+      <Col>
+        <Form.Control onChange={handleTextChange} id='category' type='text' value={transaction.category} placeholder='from' />
+        </Col>
+        </Row>
         <br />
-        <label>From</label>
-        <input onChange={handleTextChange} id='from' type='text' value={transaction.from} placeholder='from' />
-        <br />
-        <br />
-        <label>Category</label>
-        <input onChange={handleTextChange} id='category' type='text' value={transaction.category} placeholder='from' />
-        <br />
-        <br />
-        <input type='submit' />
-      </form>
-    </div>
+        <Row className="justify-content-center">
+                        <Col sm={2}>
+                            <Link to={`/budget/${id}`}>
+                                <Button>Cancel</Button>
+                            </Link>
+                        </Col>
+                        <Col sm={6}>
+                            <Button type="submit">Submit</Button>
+                        </Col>
+                    </Row>
+        </Form.Group>
+      </Form>
+    </Container>
   )
 }

@@ -11,3 +11,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* --------------CSS for the nav bar ----------*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #62ea47;
+  color: #fff;
+}
+
+.navHeader {
+  height: 2rem;
+  margin-right: 1rem;
+  margin-right: 0;
+}
+
+.newTransBtn {
+  list-style: none;
+  display: flex;
+}
+
+
+/*---------------- form CSS----------------- */
+
+/* .transForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.transForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.label  {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form_input,
+.form__field textarea,
+.dropdown {
+  padding: 0.5rem;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.form_submit {
+  padding: 0.5rem 0.5rem;
+  border-radius: 2px;
+  border: none;
+  background-color: #45ad31;
+  color: black;
+  cursor: pointer;
+}
+
+.form_submit:hover {
+  background-color: #11830a;
+} */
+
+
+/* ----------------Table CSS--------------- */
+/* .table {
+  /* border-collapse: collapse; */
+   /* display: flex; */
+  /* justify-content: center; */
+  /* width: 90%;
+  padding: 0.5rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  width:16%
+} */
+
+/* .table td {
+  text-align: left;
+} */
+
+/* .table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+} */ 
