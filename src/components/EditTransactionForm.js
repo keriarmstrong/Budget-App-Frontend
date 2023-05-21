@@ -50,80 +50,83 @@ export default function EditTransactionForm() {
   };
 
   return (
-    <Container>
+    <Container fluid="md">
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-        <Row>
-          <Col>
-        <Form.Label>Date</Form.Label>
-        </Col>
-        <Col>
-        <Form.Control onChange={handleTextChange} id='date' type='date' value={transaction.date} placeholder='mm-dd-yyyy' />
-        </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col>
-        <Form.Label >Name</Form.Label>
-        </Col>
-        <Col>
-        <Form.Control onChange={handleTextChange} id='item_name' type='text' value={transaction.item_name} placeholder='name' />
-        </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col>
-        <Form.Label>Type</Form.Label>
-        </Col>
-      <Col>
-      
-        <select class="form-select" id="type" onChange={handleTextChange}>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="debit">debit</option>
-                    <option value="credit">credit</option>
-                </select>
-              
-                </Col>
-        {/* <input onChange={handleTextChange} id='type' type='text' value={transaction.item_name} placeholder='name' /> */}
-        </Row>
-        <br />
-        <Row>
-          <Col>
-        <Form.Label>Amount</Form.Label>
-        </Col>
-        <Col>
-        <Form.Control onChange={handleTextChange} id='amount' type='number' value={transaction.amount} placeholder='amount' />
-        </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col>
-        <Form.Label>From</Form.Label>
-        </Col>
-        <Col>
-        <Form.Control onChange={handleTextChange} id='from' type='text' value={transaction.from} placeholder='from' />
-        </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col>
-        <Form.Label>Category</Form.Label>
-        </Col>
-      <Col>
-        <Form.Control onChange={handleTextChange} id='category' type='text' value={transaction.category} placeholder='from' />
-        </Col>
-        </Row>
-        <br />
-        <Row className="justify-content-center">
-                        <Col sm={2}>
-                            <Link to={`/budget/${id}`}>
-                                <Button>Cancel</Button>
-                            </Link>
-                        </Col>
-                        <Col sm={6}>
-                            <Button type="submit">Submit</Button>
-                        </Col>
-                    </Row>
+          <Row>
+            <Col sm={2}>
+              <Form.Label>Date</Form.Label>
+            </Col>
+            <Col sm={6}>
+              <Form.Control onChange={handleTextChange} id='date' type='date' value={transaction.date} placeholder='mm-dd-yyyy' />
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col sm={2}>
+              <Form.Label >Name</Form.Label>
+            </Col>
+            <Col sm={6}>
+              <Form.Control onChange={handleTextChange} id='item_name' type='text' value={transaction.item_name} placeholder='name' />
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col sm={2}>
+              <Form.Label>Type</Form.Label>
+            </Col>
+            <Col sm={6}>
+
+              <select class="form-select" id="type" onChange={handleTextChange}>
+                <option value="" disabled selected>Select an option</option>
+                <option value="debit">debit</option>
+                <option value="credit">credit</option>
+              </select>
+
+            </Col>
+            {/* <input onChange={handleTextChange} id='type' type='text' value={transaction.item_name} placeholder='name' /> */}
+          </Row>
+          <br />
+          <Row>
+            <Col sm={2}>
+              <Form.Label>Amount</Form.Label>
+            </Col>
+            <Col sm={6}>
+              <div class="input-group">
+                <div class="input-group-text">$</div>
+                <input class='form-control' onChange={handleTextChange} id='amount' type='number' value={transaction.amount} placeholder='amount' />
+              </div>
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col sm={2}>
+              <Form.Label>From</Form.Label>
+            </Col>
+            <Col sm={6}>
+              <Form.Control onChange={handleTextChange} id='from' type='text' value={transaction.from} placeholder='from' />
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col sm={2}>
+              <Form.Label>Category</Form.Label>
+            </Col>
+            <Col sm={6}>
+              <Form.Control onChange={handleTextChange} id='category' type='text' value={transaction.category} placeholder='from' />
+            </Col>
+          </Row>
+          <br />
+          <Row className="justify-content-center">
+            <Col sm={2}>
+              <Link to={`/budget/${id}`}>
+                <Button variant="outline-dark">Cancel</Button>
+              </Link>
+            </Col>
+            <Col sm={6}>
+              <Button variant="outline-dark" type="submit">Submit</Button>
+            </Col>
+          </Row>
         </Form.Group>
       </Form>
     </Container>

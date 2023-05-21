@@ -4,7 +4,8 @@ import TransactionDetails from '../components/TransactionDetails'
 export default function ShowTransaction() {
   return (
     <div>
-      Show page
+      <br/>
+      <br/>
     <TransactionDetails />
     </div>
   )

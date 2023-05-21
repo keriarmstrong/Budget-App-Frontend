@@ -26,5 +26,5 @@ export default function Subtotal() {
 
       const subtotal = calculateSubtotal();
 
-  return ({subtotal})
+  return (subtotal)
 }

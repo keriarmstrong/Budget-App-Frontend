@@ -1,8 +1,8 @@
 import React from 'react'
 import AllTransactions from '../components/AllTransactions'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Card, Container } from 'react-bootstrap'
-import { useState } from 'react'
+import { Card, Container, Row, Col } from 'react-bootstrap'
+
 
 
 export default function Index({subtotal}) {
@@ -29,7 +29,11 @@ export default function Index({subtotal}) {
         <Card>
           <Card.Body>
         <AllTransactions />
-        <div>Subtotal: {subtotal}</div>
+        <Row>
+          <Col sm="4 offset-8">
+        <h4>Subtotal: {subtotal}</h4>
+        </Col>
+        </Row>
         </Card.Body>
         </Card>
         

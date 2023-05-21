@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { Card, Button, Row, Col, Container } from 'react-bootstrap'
+import mntBg from '../assets/mountain.png'
 const API = process.env.REACT_APP_API_URL;
 
 export default function TransactionDetails() {
@@ -33,7 +34,8 @@ export default function TransactionDetails() {
     return (
         <Container>
         <Card className="mb-3">
-            <Card.Img src="" alt="mountains"/>
+            <Card.Img src={mntBg} alt="mountains" style={{width: 'auto', height: '100px', opacity: 0.4}}/>
+            <Card.Title style={{textDecoration:'line'}}>Transaction: {transaction.item_name}</Card.Title>
             <Card.Body>
                 <br />
             <Row>
@@ -62,7 +64,7 @@ export default function TransactionDetails() {
             </Row>
             <br />
             <Row>
-                <Col sm="2 offset-3"><Link to={`/budget/${id}/edit`}>
+                <Col sm="2 offset-4"><Link to={`/budget/${id}/edit`}>
                     <Button variant="outline-dark">Edit</Button>
                 </Link>
                 </Col>

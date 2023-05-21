@@ -111,7 +111,7 @@ export default function NewTransaction() {
                             </Link>
                         </Col>
                         <Col sm={6}>
-                            <Button className="" variant="outline-dark" type="submit">Submit</Button>
+                            <Button variant="outline-dark" type="submit">Submit</Button>
                         </Col>
                     </Row>
                 </Form.Group>
