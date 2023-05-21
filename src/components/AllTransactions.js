@@ -39,6 +39,6 @@ export default function AllTransactions() {
            
            </tbody>
            
-        </Table>
+        </Table> 
     )
 }
